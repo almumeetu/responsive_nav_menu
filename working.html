@@ -1,0 +1,404 @@
+
+    <style>
+        .navbar_custom {
+            background-color: #fff;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .logo {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .nav-list_custom {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 45%;
+        }
+
+        .nav-list_custom li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav-list_custom li a,
+        .cart-icon>a {
+            font-family: Jost, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: .2em;
+            line-height: 21px;
+            color: #0d0d0d;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+
+
+
+        .mob_nav_list_custom {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mob_nav_list_custom li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .mob_nav_list_custom li a,
+        .cart-icon>a {
+            font-family: Jost, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 40px;
+            color: #363636;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+
+
+        .cart-icon>a {
+            margin-right: 3rem;
+        }
+
+        .section {
+            padding: 50px 0;
+            text-align: center;
+            height: 100vh;
+        }
+
+
+        .cart-icon {
+            margin-right: 20px;
+        }
+
+        .logo {
+            width: 20%;
+            text-align: left;
+        }
+
+        .logo img {
+            width: 165px;
+            height: 33px;
+
+        }
+
+        .cart-icon {
+            margin-right: 20px;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            justify-content: end;
+            width: 20%;
+        }
+
+        ol:not(.wp-block),
+        ul:not(.wp-block) {
+            margin: 0 0 0 !important;
+        }
+
+        /* button_text style start here */
+
+        .button {
+            padding: 0;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .button:focus {
+            outline: none;
+        }
+
+        button::-moz-focus-inner {
+            border: 0;
+        }
+
+        .button.is-text {
+            background-color: transparent;
+            border: 0;
+        }
+
+        .button-inner-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #menu-button {
+            width: 48px;
+            height: 48px;
+            background-color: transparent;
+            transition: background-color 2s ease;
+        }
+
+        /* Menu toggle button */
+        .icon {
+            line-height: 0;
+        }
+
+        .menu-icon {
+            text-align: left;
+            width: 27px;
+        }
+
+        .menu-icon::after,
+        .menu-icon::before {
+            background-color: #6e5e5e;
+            content: "";
+            display: inline-block;
+            height: 2px;
+            width: 40px;
+            margin: 3px 0;
+            transition-duration: 0.5s;
+        }
+
+        .menu-icon::before {
+            width: 30px;
+        }
+
+        .menu-icon::after {
+            width: 21px;
+        }
+
+        .desktop_overlay {
+            height: 78vh;
+            width: 300px;
+            background: #e7e7e7;
+            padding: 40px 30px;
+            position: fixed;
+            top: 120px;
+            right: -400px;
+            /* Initially off-screen */
+            z-index: 9999 !important;
+            transition: right 0.5s ease;
+            /* Transition for right property */
+        }
+
+        .desktop_overlay.show {
+            right: 0;
+            /* Show overlay by bringing it to the right */
+        }
+
+        .contact {
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .contact p span {
+            line-height: 34px;
+            font-size: 15px;
+            color: #363636;
+        }
+
+
+        .nav-list_custom li a {
+            position: relative;
+            /* Make position relative to position the line */
+        }
+
+        .nav-list_custom li a::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: 50%;
+            /* Position it to the middle */
+            transform: translateX(-50%);
+            width: 2px;
+            /* Width of the line */
+            height: 50px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            /* Transition effect */
+            z-index: -1;
+            /* Ensure it's behind the text */
+        }
+
+        .nav-list_custom li a:hover::before {
+            background-color: #585151;
+            /* Change background color on hover */
+        }
+
+
+
+        #menu-button:hover .menu-icon::before {
+            width: 18px;
+            transition-duration: 0.5s;
+        }
+
+        #menu-button:hover .menu-icon::after {
+            width: 27px;
+            transition-duration: 0.5s;
+        }
+
+
+        #menu-button.is-opened .menu-icon::before {
+            transform: rotateZ(135deg) translate(3px, -3px);
+            width: 27px;
+        }
+
+        #menu-button.is-opened .menu-icon::after {
+            transform: rotateZ(-135deg) translate(3px, 3px);
+            width: 27px;
+        }
+
+        .mob_nav_list_custom {
+            display: none;
+        }
+
+        /* button_text style End here */
+
+        /* .nav-list_custom {
+                display: block;
+            } */
+
+        /* Responsive Start */
+        @media screen and (max-width: 991px) {
+            .mob_nav_list_custom {
+                display: block;
+            }
+
+            ul.nav-list_custom {
+                display: none;
+            }
+
+            .logo {
+                width: 50%;
+                margin-left: 5%;
+            }
+
+            .cart-icon {
+                width: 50%;
+                justify-content: right;
+                margin-right: 10%;
+            }
+
+            .contact {
+                display: none;
+            }
+
+            .desktop_overlay {
+                width: 205px;
+            }
+
+            .mob_nav_list_custom li {
+                display: block !important;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .desktop_overlay {
+                width: 200px;
+            }
+
+            .cart-icon>a {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar_custom">
+
+        <ul class="nav-list_custom">
+            <li><a href="#top">上</a></li>
+            <li><a href="#about">ホテルについて</a></li>
+            <li><a href="#service">ペットサービス</a></li>
+            <li><a href="#fees">ペットホテル料金</a></li>
+            <li><a href="#testimonial">お客様の声</a></li>
+            <li><a href="#information">ホテル情報</a></li>
+            <li><a href="#faq">FAQ'S</a></li>
+            <li><a href="#location">ホテルの場所</a></li>
+        </ul>
+
+        <div class="logo">
+            <img src="https://airlinehnd-pethotel.nexus-dev3.site/wp-content/uploads/2021/12/logo-main.png" alt="Logo">
+        </div>
+
+
+        <div class="cart-icon">
+
+            <a href="#">カート(0)</a>
+
+            <button class="button is-text" id="menu-button" onclick="buttonToggle()">
+                <div class="button-inner-wrapper">
+                    <span class="icon menu-icon"></span>
+                </div>
+            </button>
+
+        </div>
+    </div>
+
+
+    <div class="desktop_overlay">
+        <ul class="mob_nav_list_custom">
+            <li><a href="#top">上</a></li>
+            <li><a href="#about">ホテルについて</a></li>
+            <li><a href="#service">ペットサービス</a></li>
+            <li><a href="#fees">ペットホテル料金</a></li>
+            <li><a href="#testimonial">お客様の声</a></li>
+            <li><a href="#information">ホテル情報</a></li>
+            <li><a href="#faq">FAQ'S</a></li>
+            <li><a href="#location">ホテルの場所</a></li>
+        </ul>
+        <div class="contact">
+            <h3>CONTACT</h3>
+            <p>
+                <span>75002 Paris, 11- Boulevard Montmarte</span>
+                <span>+00395 365 365 25</span>
+                <span>madelyn@example.com</span>
+            </p>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('.nav-list_custom a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        let buttonToggle = () => {
+            const overlay = document.querySelector(".desktop_overlay");
+            const button = document.getElementById("menu-button").classList,
+                isopened = "is-opened";
+            let isOpen = button.contains(isopened);
+            if (isOpen) {
+                button.remove(isopened);
+                overlay.classList.remove("show"); // Hide overlay
+            } else {
+                button.add(isopened);
+                overlay.classList.add("show"); // Show overlay
+            }
+        }
+
+
+    </script>
+</body>
+
